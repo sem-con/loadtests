@@ -1,0 +1,23 @@
+version: "3"
+services:
+  semcon_load:
+    image: semcon/sc-base
+    environment:
+      SEMCON_DB: "external"
+      AUTH: "true"
+    links:
+      - db
+    ports:
+      - 3100:3000
+    networks:
+      semcon_load:
+  db:
+    image: postgres:12.1
+    volumes:
+      - load:/var/lib/postgresql/data
+    networks:
+      semcon_load:
+volumes:
+  load:
+networks:
+  semcon_load:
