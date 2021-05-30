@@ -10,5 +10,11 @@ x<- c(x, 13890, 13784, 13645, 13500, 14180, 13607, 13137, 12814, 13251, 13807, 1
 avg <- mean(x)
 stdv <- sd(x)
 
+# test run with large objects (1.5 kB) on Wednesday, April 30, 2021
+avg <- mean(as.numeric(dat3[1, ]))
+stdv <- sd(as.numeric(dat3[1, ]))
+
 plot(x, ylab="time in milliseconds", xlab="")
-plot(c(as.numeric(dat[2, ]), as.numeric(dat2[2, ])), ylab="time in milliseconds", xlab="")
+plot(c(as.numeric(dat[2, ]), as.numeric(dat2[2, ]), as.numeric(dat3[2, ])), ylab="time in milliseconds", xlab="")
+plot(c(as.numeric(dat[1, ]), as.numeric(dat2[1, ]), as.numeric(dat3[1, ])), ylab="time in milliseconds", xlab="")
+plot(as.numeric(dat3[1, ]), ylab="time in milliseconds", xlab="")
